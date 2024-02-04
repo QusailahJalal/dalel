@@ -11,16 +11,17 @@ void main() => runApp(
   ),
 );
 
+// void main() => runApp(Dalel());
+
 class Dalel extends StatelessWidget {
   const Dalel({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      theme: ThemeData(scaffoldBackgroundColor: AppColors.offWhite ),
+      theme: ThemeData(scaffoldBackgroundColor: AppColors.offWhite),
       debugShowCheckedModeBanner: false,
       routerConfig: router,
-      
     );
   }
 }
