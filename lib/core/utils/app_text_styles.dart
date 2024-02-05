@@ -14,4 +14,10 @@ abstract class CustomTextStyles {
     fontWeight: FontWeight.w500,
     fontFamily: 'Poppins',
   );
+  static final poppins300Style16 = TextStyle(
+    color: AppColors.black,
+    fontSize: 16,
+    fontWeight: FontWeight.w300,
+    fontFamily: 'Poppins',
+  );
 }

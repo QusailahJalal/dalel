@@ -3,8 +3,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../core/utils/app_colors.dart';
 
-class CustomSmoothPage extends StatelessWidget {
-  CustomSmoothPage({super.key,required this.controller});
+class CustomSmoothPageIndicator extends StatelessWidget {
+  CustomSmoothPageIndicator({super.key, required this.controller});
   PageController controller;
 
   @override
