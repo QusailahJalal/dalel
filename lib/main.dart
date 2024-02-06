@@ -4,14 +4,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 
-// void main() => runApp(
-//   DevicePreview(
-//     enabled: !kReleaseMode,
-//     builder: (context) => Dalel(), // Wrap your app
-//   ),
-// );
+void main() => runApp(
+  DevicePreview(
+    enabled: !kReleaseMode,
+    builder: (context) => Dalel(), // Wrap your app
+  ),
+);
 
-void main() => runApp(Dalel());
+// void main() => runApp(Dalel());
 
 class Dalel extends StatelessWidget {
   const Dalel({super.key});

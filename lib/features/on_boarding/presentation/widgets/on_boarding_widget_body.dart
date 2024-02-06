@@ -1,4 +1,5 @@
 import 'package:dalel_app/core/utils/app_assets.dart';
+import 'package:dalel_app/features/on_boarding/data/models/on_boarding_model.dart';
 import 'package:dalel_app/features/on_boarding/presentation/widgets/custom_smooth_page_indicator.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/app_text_styles.dart';
@@ -9,18 +10,20 @@ class OnBoardingWidgetBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: 500,
       child: PageView.builder(
         controller: _controller,
-        itemCount: 3,
-        itemBuilder: (context, index) => Column(
+        itemCount: onBoardingData.length,
+        itemBuilder: (context, index) => ListView(
+          physics: const BouncingScrollPhysics(),
           children: [
             Container(
               width: 343,
               height: 290,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(Assets.assetsImagesOnBoarding1),
+                    image: AssetImage(onBoardingData[index].imagePath),
                     fit: BoxFit.fill),
               ),
             ),
@@ -32,7 +35,7 @@ class OnBoardingWidgetBody extends StatelessWidget {
               height: 32,
             ),
             Text(
-              'Explore The history with Dalel in a smart way',
+              onBoardingData[index].title,
               style: CustomTextStyles.poppins500Style24.copyWith(
                 fontWeight: FontWeight.bold,
               ),
@@ -42,9 +45,10 @@ class OnBoardingWidgetBody extends StatelessWidget {
               height: 16,
             ),
             Text(
-              'Using our app’s history libraries you can find many historical periods ',
+              onBoardingData[index].subTitle,
               style: CustomTextStyles.poppins300Style16,
               textAlign: TextAlign.center,
+              maxLines: 2,
             ),
           ],
         ),
