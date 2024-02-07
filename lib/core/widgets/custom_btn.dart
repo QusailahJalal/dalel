@@ -6,9 +6,11 @@ import 'package:flutter/material.dart';
 class CustomBtn extends StatelessWidget {
   final Color? color;
   final String text;
+  final VoidCallback? onPressed;
   const CustomBtn({
     super.key,
-    this.color, required this.text,
+    this.color,
+    required this.text,  this.onPressed,
   });
 
   @override
@@ -23,8 +25,8 @@ class CustomBtn extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
         ),
-        onPressed: () {},
-        child:  Text(
+        onPressed: onPressed ,
+        child: Text(
           text,
           style: CustomTextStyles.poppins500Style24.copyWith(
             fontSize: 18,
