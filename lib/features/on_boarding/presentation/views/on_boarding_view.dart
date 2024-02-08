@@ -1,3 +1,4 @@
+import 'package:dalel_app/core/database/cache/cache_helper.dart';
 import 'package:dalel_app/core/functions/navigation.dart';
 import 'package:dalel_app/features/on_boarding/presentation/widgets/on_boarding_widget_body.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
             ),
             CustomNavBar(
               onTap: () {
-                customNavigation(context, '/signUp');
+                CacheHelper().saveData(key: 'onBoardingVisited', value: true);
+                customReplaceNavigation(context, '/signUp');
               },
             ),
             OnBoardingWidgetBody(

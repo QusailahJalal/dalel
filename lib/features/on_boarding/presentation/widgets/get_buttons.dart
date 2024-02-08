@@ -1,3 +1,4 @@
+import 'package:dalel_app/core/database/cache/cache_helper.dart';
 import 'package:dalel_app/core/functions/navigation.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_text_styles.dart';
@@ -19,7 +20,7 @@ class GetButtons extends StatelessWidget {
               CustomBtn(
                 text: AppStrings.createAccount,
                 onPressed: () {
-                  customNavigation(context, '/signUp');
+                  customReplaceNavigation(context, '/signUp');
                 },
               ),
               const SizedBox(
@@ -27,7 +28,8 @@ class GetButtons extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  customNavigation(context, '/signIn');
+                  customReplaceNavigation(context, '/signIn');
+                  CacheHelper().saveData(key: 'onBoardingVisited', value: true);
                 },
                 child: Text(
                   AppStrings.loginNow,
@@ -43,6 +45,7 @@ class GetButtons extends StatelessWidget {
               controller.nextPage(
                   duration: const Duration(microseconds: 200),
                   curve: Curves.bounceIn);
+              CacheHelper().saveData(key: 'onBoardingVisited', value: true);
             },
           );
   }
