@@ -1,8 +1,11 @@
+import 'package:dalel_app/core/database/cache/cache_helper.dart';
+import 'package:dalel_app/core/services/service_locator.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/widgets/custom_btn.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/custom_text_field.dart';
+import '../widgets/custom_text_sign_in_and_sign_up.dart';
 import '../widgets/terms_and_conditions_widgets.dart';
 import '../widgets/welcome_text_widget.dart';
 
@@ -48,7 +51,9 @@ class SignUpView extends StatelessWidget {
             SliverToBoxAdapter(
               child: CustomBtn(
                 text: AppStrings.signUp,
-                onPressed: () {},
+                onPressed: () {
+                  getIt<CacheHelper>().removeData(key: 'onBoardingVisited');
+                },
               ),
             ),
             const SliverToBoxAdapter(child: SizedBox(height: 16)),
@@ -62,24 +67,6 @@ class SignUpView extends StatelessWidget {
             )
           ],
         ),
-      ),
-    );
-  }
-}
-
-class CustomTextSignInAndSignUp extends StatelessWidget {
-  const CustomTextSignInAndSignUp(
-      {super.key, required this.text1, required this.text2});
-  final String text1, text2;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text.rich(
-      TextSpan(
-        children: [
-          TextSpan(text: text1),
-          TextSpan(text: text2),
-        ],
       ),
     );
   }
