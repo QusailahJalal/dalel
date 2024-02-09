@@ -1,5 +1,6 @@
 import 'package:dalel_app/core/database/cache/cache_helper.dart';
 import 'package:dalel_app/core/functions/navigation.dart';
+import 'package:dalel_app/core/services/service_locator.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_text_styles.dart';
 import 'package:dalel_app/core/widgets/custom_btn.dart';
@@ -29,7 +30,7 @@ class GetButtons extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   customReplaceNavigation(context, '/signIn');
-                  CacheHelper().saveData(key: 'onBoardingVisited', value: true);
+                  getIt<CacheHelper>().saveData(key: 'onBoardingVisited', value: true);
                 },
                 child: Text(
                   AppStrings.loginNow,
@@ -45,7 +46,7 @@ class GetButtons extends StatelessWidget {
               controller.nextPage(
                   duration: const Duration(microseconds: 200),
                   curve: Curves.bounceIn);
-              CacheHelper().saveData(key: 'onBoardingVisited', value: true);
+              getIt<CacheHelper>().saveData(key: 'onBoardingVisited', value: true);
             },
           );
   }

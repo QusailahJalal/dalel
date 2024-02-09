@@ -1,18 +1,20 @@
 import 'package:dalel_app/core/database/cache/cache_helper.dart';
 import 'package:dalel_app/core/routes/app_router.dart';
+import 'package:dalel_app/core/services/service_locator.dart';
 import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 
-void main() async{
-  
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await CacheHelper().init();
+  setupServiceLocator();
+
+  await getIt<CacheHelper>().init();
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
-      builder: (context) => Dalel(), // Wrap your app
+      builder: (context) => const Dalel(), // Wrap your app
     ),
   );
 }
