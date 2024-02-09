@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomTextSignInAndSignUp extends StatelessWidget {
-  const CustomTextSignInAndSignUp(
+class HoveAnAcountWidget extends StatelessWidget {
+  const HoveAnAcountWidget(
       {super.key, required this.text1, required this.text2});
   final String text1, text2;
 

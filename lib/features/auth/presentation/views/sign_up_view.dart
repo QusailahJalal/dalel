@@ -5,7 +5,7 @@ import 'package:dalel_app/core/widgets/custom_btn.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/custom_text_field.dart';
-import '../widgets/custom_text_sign_in_and_sign_up.dart';
+import '../widgets/have_an_acount_widget.dart';
 import '../widgets/terms_and_conditions_widgets.dart';
 import '../widgets/welcome_text_widget.dart';
 
@@ -59,7 +59,7 @@ class SignUpView extends StatelessWidget {
             const SliverToBoxAdapter(child: SizedBox(height: 16)),
             const SliverToBoxAdapter(
               child: Align(
-                child: CustomTextSignInAndSignUp(
+                child: HoveAnAcountWidget(
                   text1: AppStrings.alreadyHaveAnAccount,
                   text2: AppStrings.signIn,
                 ),
