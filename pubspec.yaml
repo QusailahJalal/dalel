@@ -9,6 +9,7 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.2
   device_preview: ^1.1.0
+  firebase_core: ^2.25.4
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.3

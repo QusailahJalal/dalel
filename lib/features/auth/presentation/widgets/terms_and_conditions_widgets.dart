@@ -29,3 +29,4 @@ class TermsAndConditionsWidgets extends StatelessWidget {
     );
   }
 }
+  
