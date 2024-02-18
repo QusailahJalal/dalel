@@ -21,7 +21,7 @@ class GetButtons extends StatelessWidget {
               CustomBtn(
                 text: AppStrings.createAccount,
                 onPressed: () {
-                  customReplaceNavigation(context, '/signUp');
+                  customReplaceNavigate(context, '/signUp');
                 },
               ),
               const SizedBox(
@@ -29,8 +29,9 @@ class GetButtons extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  customReplaceNavigation(context, '/signIn');
-                  getIt<CacheHelper>().saveData(key: 'onBoardingVisited', value: true);
+                  customReplaceNavigate(context, '/signIn');
+                  getIt<CacheHelper>()
+                      .saveData(key: 'onBoardingVisited', value: true);
                 },
                 child: Text(
                   AppStrings.loginNow,
@@ -46,7 +47,8 @@ class GetButtons extends StatelessWidget {
               controller.nextPage(
                   duration: const Duration(microseconds: 200),
                   curve: Curves.bounceIn);
-              getIt<CacheHelper>().saveData(key: 'onBoardingVisited', value: true);
+              getIt<CacheHelper>()
+                  .saveData(key: 'onBoardingVisited', value: true);
             },
           );
   }

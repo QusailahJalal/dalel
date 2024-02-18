@@ -9,10 +9,13 @@ part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
-  late String? firstName;
-  late String? lastName;
-  late String? emailAddress;
-  late String? password;
+  String? firstName;
+  String? lastName;
+  String? emailAddress;
+  String? password;
+  bool? termsAndConditionsCheckBoxValue = false;
+  bool isVisablePassword = false;
+  GlobalKey<FormState> signUpFormKey = GlobalKey();
 
   signUpUserWithEmailAndPassword() async {
     try {
@@ -35,5 +38,15 @@ class AuthCubit extends Cubit<AuthState> {
     } catch (e) {
       emit(SignUpFailureState(errorMessage: e.toString()));
     }
+  }
+
+  updateTermsAndConditionsCheckBox({required newValue}) {
+    termsAndConditionsCheckBoxValue = newValue;
+    emit(TermsAndConditionUpdateState());
+  }
+
+  changeThePasswordVisable() {
+    isVisablePassword = !isVisablePassword;
+    emit(ShowAndHidePasswordState());
   }
 }
